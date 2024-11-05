@@ -1,0 +1,8 @@
+.ant-popover-inner {
+  border: 2px solid #e5e7eb;
+  padding: 5px !important;
+  box-shadow: none !important;
+}
+.ant-popover-arrow {
+  display: none !important;
+}
