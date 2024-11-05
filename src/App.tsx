@@ -5,6 +5,8 @@ import CoreThemeProvider from './themes'
 import { Provider } from 'react-redux'
 import { store } from './store'
 import { ModalProvider } from './contexts/modal.context'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Provider store={store}>
         <ModalProvider>
           <RouterProvider router={rootRouter} />
+          <ToastContainer bodyClassName='font-nunito text-sm' />
         </ModalProvider>
       </Provider>
     </CoreThemeProvider>

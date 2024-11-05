@@ -1,16 +1,19 @@
 import { Button, Checkbox, Form } from 'antd'
 import CInput from '../../../atoms/input'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import useLogin from '../hooks/useLogin'
+import { loginFormResolver } from '../resolvers/login.resolver'
 
 export function LoginForm() {
+  const [, { onHandleLogin }] = useLogin()
   return (
     <div className='flex flex-col max-w-[500px] w-full shadow-standard px-6 py-8 bg-white'>
-      <Form layout='vertical'>
+      <Form layout='vertical' onFinish={onHandleLogin}>
         <Form.Item
           name='username'
           label={<p className='font-semibold font-nunito'>Username</p>}
           layout='vertical'
-          rules={[{ required: true, message: 'Please input your username!' }]}
+          rules={loginFormResolver.username}
         >
           <CInput prefix={<UserOutlined />} />
         </Form.Item>
